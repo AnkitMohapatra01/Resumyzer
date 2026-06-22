@@ -4,6 +4,7 @@ import dotenv from 'dotenv/config'
 import cookieParser from 'cookie-parser'
 import { connectDB } from './config/db.js'
 import { authRouter } from './routers/auth.routes.js'
+import { resumeRouter } from './routers/resume.route.js'
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/auth', authRouter);
+app.use('/api/resume', resumeRouter);
 
 app.listen(PORT, () => {
     console.log('Server is running at PORT', PORT)
